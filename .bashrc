@@ -65,6 +65,8 @@ export GREP_OPTIONS='--color=auto'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+source $HOME/env/.bashrc_aliases
+
 # Allows customization per environment.
 if [ -f $HOME/env/.bashrc_local ];
 then
