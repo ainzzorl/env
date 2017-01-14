@@ -1,0 +1,40 @@
+# TODO: implement as git aliases.
+
+main_branch="${GIT_MAIN_BRANCH:-master}"
+
+alias git_diff_with_main=diff_with_main
+alias git_push_to_main=push_to_main
+alias git_prepare_cr=prepare_cr
+
+alias git_push_and_delete="~/env/git_push_and_delete"
+
+function diff_with_main {
+    current_branch=`git rev-parse --abbrev-ref HEAD`
+    git diff $main_branch..$current_branch
+}
+
+function push_to_main {
+    current_branch=`git rev-parse --abbrev-ref HEAD`
+    git push origin $current_branch:$main_branch
+}
+
+function prepare_cr {
+    current_branch=`git rev-parse --abbrev-ref HEAD`
+    cr_branch="${current_branch}_cr"
+
+    set -e
+    echo "git checkout $main_branch"
+    git checkout $main_branch
+    echo "git pull"
+    git pull
+    echo "git checkout $current_branch"
+    git checkout $current_branch
+    echo "git rebase $main_branch"
+    git rebase $main_branch
+    echo "git checkout $main_branch"
+    git checkout $main_branch
+    echo "git checkout -b $cr_branch"
+    git checkout -b $cr_branch
+    echo "git merge --squash --no-commit $current_branch"
+    git merge --squash --no-commit $current_branch
+}
