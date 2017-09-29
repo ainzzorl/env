@@ -1,31 +1,16 @@
-#!/bin/bash -e
-
 # TODO: use variable
 main_branch='mainline'
 
 if [ $# -ne 1 ]; then
-    echo "Illegal number of parameters."
-    exit 1
+    echo "Illegal number of parameters."
+    exit 1
 fi
 current_branch=`git rev-parse --abbrev-ref HEAD`
 branch_to_push=$1
 
 if [ "$current_branch" != "$main_branch" ]; then
-    echo "Only possible from the main branch.";
-    exit 1
+    echo "Only possible from the main branch.";
+    exit 1
 fi
 
-echo "git pull"
-git pull
-echo "git checkout $branch_to_push"
-git checkout $branch_to_push
-echo "git rebase $main_branch"
-git rebase $main_branch
-echo "git push origin $branch_to_push:$main_branch"
-git push origin $branch_to_push:$main_branch
-echo "git checkout $main_branch"
-git checkout $main_branch
-echo "git pull"
-git pull
-echo "git branch -d $branch_to_push"
-git branch -d $branch_to_push
+git pull && git checkout $branch_to_push && git rebase $main_branch && git push origin $branch_to_push:$main_branch && git checkout $main_branch && git pull && git branch -d $branch_to_push
