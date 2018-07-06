@@ -67,6 +67,8 @@ fi
 
 export GREP_OPTIONS='--color=auto'
 
+export PS1="\e[0;36m\u@\h \w> \e[m"
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 source $HOME/env/.bashrc_aliases
