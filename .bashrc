@@ -72,10 +72,12 @@ export PS1="\e[0;36m\u@\h \w> \e[m"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 source $HOME/env/.bashrc_aliases
-source $HOME/env/.git_shortcuts
 
 # Allows customization per environment.
 if [ -f $HOME/env/.bashrc_local ];
 then
    source $HOME/env/.bashrc_local
 fi
+
+source $HOME/env/.git_shortcuts
+
