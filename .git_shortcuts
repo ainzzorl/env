@@ -19,6 +19,5 @@ git push origin $current_branch:$main_branch
 function prepare_cr {
 current_branch=`git rev-parse --abbrev-ref HEAD`
 cr_branch="${current_branch}_cr"
- 
-git checkout $main_branch && git pull && git checkout -b $cr_branch && git merge --squash --no-commit $current_branch
+git checkout $main_branch && git pull && git checkout -b $cr_branch && git merge --squash --no-commit $current_branch && git branch -u origin/$main_branch
 }
