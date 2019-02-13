@@ -4,21 +4,20 @@ case $- in
       *) return;;
 esac
 
-# Avoid duplicates
-HISTCONTROL=ignoredups:erasedups
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-HISTSIZE=100000
-HISTFILESIZE=100000
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
-# After each command, append to the history file and reread it
-PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
