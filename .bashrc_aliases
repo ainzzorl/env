@@ -1,3 +1,4 @@
 alias l='ls -lah'
 alias sbrc='source ~/env/.bashrc'
 alias killport="$HOME/env/kill-port.sh"
+alias untilitbreaks="$HOME/env/until-it-breaks.sh"
