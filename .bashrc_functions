@@ -1,0 +1,7 @@
+last-exit-status() {
+    echo "$?"
+}
+
+my-pid() {
+    echo "$$"
+}
