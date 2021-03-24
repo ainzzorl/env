@@ -61,16 +61,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if test -f ~/.rvm/scripts/rvm; then
-    [ "$(type -t rvm)" = "function" ] || source ~/.rvm/scripts/rvm
-fi
-
 export GREP_OPTIONS='--color=auto'
 
 # http://bashrcgenerator.com/
 export PS1="\[\033[38;5;14m\]\u@\h \w> \[$(tput sgr0)\]"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 source $HOME/env/.bashrc_functions
 source $HOME/env/.bashrc_aliases
