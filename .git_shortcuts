@@ -21,3 +21,8 @@ current_branch=`git rev-parse --abbrev-ref HEAD`
 cr_branch="${current_branch}_cr"
 git checkout $main_branch && git pull && git checkout -b $cr_branch && git merge --squash --no-commit $current_branch && git branch -u origin/$main_branch
 }
+
+git-push-same-branch() {
+    branch=$(git rev-parse --abbrev-ref HEAD)
+    git push -u origin $branch:$branch
+}

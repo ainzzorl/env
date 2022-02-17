@@ -2,3 +2,5 @@ alias l='ls -lah'
 alias sbrc='source ~/env/.bashrc'
 alias killport="$HOME/env/kill-port.sh"
 alias untilitbreaks="$HOME/env/until-it-breaks.sh"
+alias simple-server='python -m SimpleHTTPServer 8000'
+alias gcam='git commit -am'
