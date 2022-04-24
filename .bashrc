@@ -69,6 +69,10 @@ export PS1="\[\033[38;5;14m\]\u@\h \w> \[$(tput sgr0)\]"
 source $HOME/env/.bashrc_functions
 source $HOME/env/.bashrc_aliases
 
+if [[ $OSTYPE == 'darwin'* ]]; then
+  source $HOME/env/.bashrc_mac
+fi
+
 # Allows customization per environment.
 if [ -f $HOME/env/.bashrc_local ];
 then
