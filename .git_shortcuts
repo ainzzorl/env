@@ -24,5 +24,9 @@ git checkout $main_branch && git pull && git checkout -b $cr_branch && git merge
 
 git-push-same-branch() {
     branch=$(git rev-parse --abbrev-ref HEAD)
-    git push -u origin $branch:$branch
+    if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
+        echo "Can't git-push-same-branch to main branch"
+    else
+        git push -u origin $branch:$branch
+    fi
 }
