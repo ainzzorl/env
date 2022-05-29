@@ -73,6 +73,11 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   source $HOME/env/.bashrc_mac
 fi
 
+if [ -d $HOME/.rvm ];
+then
+   source $HOME/env/.bashrc_ruby
+fi
+
 # Allows customization per environment.
 if [ -f $HOME/env/.bashrc_local ];
 then
@@ -80,4 +85,3 @@ then
 fi
 
 source $HOME/env/.git_shortcuts
-

@@ -1,0 +1,10 @@
+export PATH="$HOME/.rvm/bin:$PATH"
+
+source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+if test -f ~/.rvm/scripts/rvm; then
+    [ "$(type -t rvm)" = "function" ] || source ~/.rvm/scripts/rvm
+fi
+
+PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
+rvm use 3.0 > /dev/null 2>&1
