@@ -79,6 +79,7 @@ export GREP_OPTIONS='--color=auto'
 # eastwood
 
 git config --global pager.branch false
+git config --global pager.diff false
 
 source $HOME/env/.bashrc_functions
 source $HOME/env/.bashrc_aliases
