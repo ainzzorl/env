@@ -7,9 +7,9 @@ esac
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="ainzzorl"
+DISABLE_AUTO_UPDATE="true"
 
 plugins=(git)
-
 source $ZSH/oh-my-zsh.sh
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -79,7 +79,9 @@ export GREP_OPTIONS='--color=auto'
 # eastwood
 
 git config --global pager.branch false
-git config --global pager.diff false
+git config --global pager.diff true
+
+setopt rmstarsilent
 
 source $HOME/env/.bashrc_functions
 source $HOME/env/.bashrc_aliases
