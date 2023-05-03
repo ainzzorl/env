@@ -8,6 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="ainzzorl"
 DISABLE_AUTO_UPDATE="true"
+ZSH_DISABLE_COMPFIX=true
 
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
