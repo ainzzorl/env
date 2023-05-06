@@ -101,4 +101,25 @@ then
    source $HOME/env/.bashrc_local
 fi
 
+# Borrowed from https://github.com/vallops99/Conda-autoactivate-env
+if [ "$ENABLE_AUTO_CONDA_ENV" = "true" ]; then
+    export CONDACONFIGDIR=""
+
+    if [ -f $PWD/.conda_config ]; then
+        export CONDACONFIGDIR=$PWD
+        conda activate $(cat .conda_config)
+    fi
+
+    cd() { builtin cd "$@" &&
+    if [ -f $PWD/.conda_config ]; then
+        export CONDACONFIGDIR=$PWD
+        conda activate $(cat .conda_config)
+    elif [ "$CONDACONFIGDIR" ]; then
+        if [[ $PWD != *"$CONDACONFIGDIR"* ]]; then
+        export CONDACONFIGDIR=""
+        conda deactivate
+        fi
+    fi }
+fi
+
 source $HOME/env/.git_shortcuts
