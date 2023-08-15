@@ -1,2 +1,3 @@
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+alias git-reset-creds-mac='git config --global credential.helper osxkeychain'
