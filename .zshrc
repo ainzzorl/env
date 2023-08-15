@@ -71,6 +71,7 @@ fi
 # fi
 
 export GREP_OPTIONS='--color=auto'
+export HOMEBREW_NO_ANALYTICS=1
 
 # http://bashrcgenerator.com/
 #export PS1="\[\033[38;5;14m\]\u@\h \w> \[$(tput sgr0)\]"
