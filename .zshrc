@@ -124,4 +124,24 @@ if [ "$ENABLE_AUTO_CONDA_ENV" = "true" ]; then
     fi }
 fi
 
+if [ "$ENABLE_AUTO_VENV" = "true" ]; then
+    export VENVDIR=""
+
+    if [ -d $PWD/.venv ]; then
+        export VENVDIR=$PWD
+        source .venv/bin/activate
+    fi
+
+    cd() { builtin cd "$@" &&
+    if [ -d $PWD/.venv ]; then
+        export VENVDIR=$PWD
+        source .venv/bin/activate
+    elif [ "$VENVDIR" ]; then
+        if [[ $PWD != *"$VENVDIR"* ]]; then
+        export VENVDIR=""
+        deactivate
+        fi
+    fi }
+fi
+
 source $HOME/env/.git_shortcuts
