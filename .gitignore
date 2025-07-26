@@ -1,1 +1,4 @@
 .bashrc_local
+log/
+.DS_Store
+
