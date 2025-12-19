@@ -72,6 +72,7 @@ fi
 
 export GREP_OPTIONS='--color=auto'
 export HOMEBREW_NO_ANALYTICS=1
+export EDITOR="vim"
 
 # http://bashrcgenerator.com/
 #export PS1="\[\033[38;5;14m\]\u@\h \w> \[$(tput sgr0)\]"
@@ -82,6 +83,7 @@ export HOMEBREW_NO_ANALYTICS=1
 
 git config --global pager.branch false
 git config --global pager.diff true
+git config --global core.editor "vim"
 
 setopt rmstarsilent
 
@@ -134,3 +136,5 @@ if [ -d "$HOME/.nvm" ]; then
 fi
 
 source $HOME/env/.git_shortcuts
+
+export PATH="$PATH:$HOME/.local/bin"

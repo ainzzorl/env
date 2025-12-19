@@ -66,6 +66,8 @@ export GREP_OPTIONS='--color=auto'
 # http://bashrcgenerator.com/
 export PS1="\[\033[38;5;14m\]\u@\h \w> \[$(tput sgr0)\]"
 
+export EDITOR="vim"
+
 source $HOME/env/.bashrc_functions
 source $HOME/env/.bashrc_aliases
 
