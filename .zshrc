@@ -105,25 +105,25 @@ then
    source $HOME/env/.bashrc_local
 fi
 
-if [ "$ENABLE_AUTO_VENV" = "true" ]; then
-    export VENVDIR=""
+#if [ "$ENABLE_AUTO_VENV" = "true" ]; then
+#    export VENVDIR=""
+#
+#    if [ -d $PWD/.venv ]; then
+#        export VENVDIR=$PWD
+# source .venv/bin/activate  # commented out by conda initialize
+#    fi
 
-    if [ -d $PWD/.venv ]; then
-        export VENVDIR=$PWD
-        source .venv/bin/activate
-    fi
-
-    cd() { builtin cd "$@" &&
-    if [ -d $PWD/.venv ]; then
-        export VENVDIR=$PWD
-        source .venv/bin/activate
-    elif [ "$VENVDIR" ]; then
-        if [[ $PWD != *"$VENVDIR"* ]]; then
-        export VENVDIR=""
-        deactivate
-        fi
-    fi }
-fi
+#    cd() { builtin cd "$@" &&
+#    if [ -d $PWD/.venv ]; then
+#        export VENVDIR=$PWD
+# source .venv/bin/activate  # commented out by conda initialize
+#    elif [ "$VENVDIR" ]; then
+#        if [[ $PWD != *"$VENVDIR"* ]]; then
+#        export VENVDIR=""
+#        deactivate
+#        fi
+#    fi }
+#fi
 
 if [ -d "$HOME/.rvm/bin" ]; then
   export PATH="$PATH:$HOME/.rvm/bin"
@@ -138,3 +138,4 @@ fi
 source $HOME/env/.git_shortcuts
 
 export PATH="$PATH:$HOME/.local/bin"
+
